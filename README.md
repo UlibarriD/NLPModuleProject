@@ -2,7 +2,7 @@
 In this repository, three NLP models that are commonly used and required in the industry are integrated
  
 ## Setting Up
-** To be able to run the programs we need to have a version of python < 3.10 **
+**To be able to run the programs we need to have a version of python < 3.10**
 
 To use the translation model, we must first establish a RapidAPI account: https://rapidapi.com/auth/sign-up
 
