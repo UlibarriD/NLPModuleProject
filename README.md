@@ -15,7 +15,9 @@ Finally, in order to install all of the required libraries and run the code we n
 ```
 .\nlpproject\Scripts\activate
 ```
- ```pip install -r requirements.txt && python run.py```
+ ```
+ pip install -r requirements.txt && python run.py
+ ```
 
 
 ## Authors
