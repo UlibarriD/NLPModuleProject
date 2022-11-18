@@ -7,7 +7,7 @@ from nltk.translate.bleu_score import sentence_bleu
 def main():
     # Task 1
     print("Task 1:\n")
-    task1_file = open('./datasets/tiny_movie_reviews_dataset.txt', 'r')
+    task1_file = open('./datasets/tiny_movie_reviews_dataset.txt', 'r') # put all filenames at top! and one nitpick, relative filenames will break on some OSes
     task1_lines = task1_file.readlines()
     for i in range(len(task1_lines)):
         print(i + 1, sentiment(task1_lines[i]))
@@ -16,7 +16,7 @@ def main():
 
     # Task 2
     print("Task 2:\n")
-    ner_model = Ner
+    ner_model = Ner()
     ner_model.train(0.3)
     ner_model.plot()
     
@@ -50,3 +50,10 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
+    """And be sure to add tests for all pieces of functionality! 
+Tests should check that the functionality/outputs are as expected, not just that the code runs! 
+When writing code, I write the test for each class or piece of functionality as soon as I finish that piece.
+It helps you develop incrementally, being sure that each piece of code is clean and works like you expect it to! 
+for tests, best practices are to have a structure like this: 
+https://stackoverflow.com/questions/1896918/running-unittest-with-typical-test-directory-structure"""
