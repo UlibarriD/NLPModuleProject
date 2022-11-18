@@ -7,15 +7,20 @@ from flair.trainers import ModelTrainer
 from typing import List
 from matplotlib import pyplot as plt
 import pandas as pd
+"""
+Naming: https://google.github.io/styleguide/pyguide.html#316-naming and https://visualgit.readthedocs.io/en/latest/pages/naming_convention.html
+"""
 
-
-class Ner:
-    def train(persent_of_dataset_to_train = 1):
+class NER:
+    def train(percent_of_dataset_to_train = 1):
         tag_type = 'ner'
         columns = {0: 'text', 1: 'ner'}
-        data_folder = './datasets/'
+        data_folder = './datasets/' # nit: make constant at top
+        # I see you are using typing, but only this one line :D 
+        # https://docs.python.org/3/library/typing.html
+        # Adding typing can really help with catching small errors!  not necessary for this homework, more for indersatnding
         corpus: Corpus = ColumnCorpus(data_folder, columns, train_file='nerTrain.txt',test_file='nerTest.txt', dev_file='nerDev.txt')
-        corpus.downsample(persent_of_dataset_to_train)
+        corpus.downsample(percent_of_dataset_to_train)
         tag_dictionary = corpus.make_label_dictionary(
             label_type=tag_type)
         embedding_types: List[TokenEmbeddings] = [WordEmbeddings('glove')]
