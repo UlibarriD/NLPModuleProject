@@ -10,8 +10,13 @@ load_dotenv(dotenv_path=dotenv_path)
 key = os.getenv('key')
 
 
-class GoogleTranslate():
+class GoogleTranslate:
     def __init__(self):
+        """Naming dunder: https://towardsdatascience.com/whats-the-meaning-of-single-and-double-underscores-in-python-3d27d57d6bd1
+        so these should be single underscore
+        
+        also, if you copied this code from somewhere, be sure to cite that source! 
+        """
         self.__url = "https://google-translate1.p.rapidapi.com/language/translate/v2"
         self.__headers = {
             "content-type": "application/x-www-form-urlencoded",
@@ -28,7 +33,7 @@ class GoogleTranslate():
         return json_response['data']['translations'][0]['translatedText']
 
 
-class MicrosoftTranslator():
+class MicrosoftTranslator:
     def __init__(self):
         self.__url = "https://microsoft-translator-text.p.rapidapi.com/translate"
         self.__headers = {
