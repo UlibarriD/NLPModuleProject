@@ -7,8 +7,9 @@ tokenizer = AutoTokenizer.from_pretrained(
 model = AutoModelForSequenceClassification.from_pretrained(
     'nlptown/bert-base-multilingual-uncased-sentiment')
 
+
 def sentimentCalculator(phrase):
     tokens = tokenizer.encode(phrase, return_tensors='pt')
     result = model(tokens)
-    rating = int(torch.argmax(result.logits)) + 1
+    rating: int = int(torch.argmax(result.logits)) + 1
     return "POSITIVE" if rating > 3 else "NEGATIVE"

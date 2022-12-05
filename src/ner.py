@@ -8,13 +8,15 @@ from typing import List
 from matplotlib import pyplot as plt
 import pandas as pd
 
+data_folder = './datasets/'
 
-class Ner:
-    def train(persent_of_dataset_to_train = 1):
+
+class NER:
+    def train(persent_of_dataset_to_train=1):
         tag_type = 'ner'
         columns = {0: 'text', 1: 'ner'}
-        data_folder = './datasets/'
-        corpus: Corpus = ColumnCorpus(data_folder, columns, train_file='nerTrain.txt',test_file='nerTest.txt', dev_file='nerDev.txt')
+        corpus: Corpus = ColumnCorpus(
+            data_folder, columns, train_file='nerTrain.txt', test_file='nerTest.txt', dev_file='nerDev.txt')
         corpus.downsample(persent_of_dataset_to_train)
         tag_dictionary = corpus.make_label_dictionary(
             label_type=tag_type)
